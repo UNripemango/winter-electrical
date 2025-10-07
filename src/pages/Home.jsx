@@ -4,10 +4,23 @@ import QuoteForm from '../components/QuoteForm';
 import TestimonialSlider from '../components/TestimonialSlider';
 
 const services = [
-  { title: 'Residential Wiring', desc: 'Complete wiring solutions for your home.' },
-  { title: 'EV Charger Installation', desc: 'Safe, certified EV charger installs.' },
-  { title: 'Emergency Repairs', desc: '24/7 urgent electrical repairs.' },
+  {
+    title: "Residential Wiring",
+    desc: "Complete wiring solutions for your home.",
+    icon: "🏠",
+  },
+  {
+    title: "EV Charger Installation",
+    desc: "Installations for electric vehicle charging stations.",
+    icon: "⚡",
+  },
+  {
+    title: "Emergency Repairs",
+    desc: "24/7 urgent electrical repairs.",
+    icon: "🚨",
+  },
 ];
+
 
 export default function Home() {
   return (
@@ -27,15 +40,18 @@ export default function Home() {
           </ul>
         </div>
         <div className="bg-gray-50 rounded-lg p-6 shadow-inner">
-          <img alt="Electrician working" src="/assets/ev-charger.jpg" className="w-full h-64 object-cover rounded-md" />
+          <img alt="Electrician working" src="dist/assets/Designer.png" className="w-full h-64 object-cover rounded-md" />
         </div>
       </div>
 
       <div className="mt-12">
         <h2 className="text-2xl font-heading font-semibold mb-4">Our Services</h2>
         <div className="grid md:grid-cols-3 gap-4">
-          {services.map(s => <ServiceCard key={s.title} title={s.title} desc={s.desc} />)}
-        </div>
+  {services.map(s => (
+    <ServiceCard key={s.title} title={s.title} desc={s.desc} icon={s.icon} />
+  ))}
+</div>
+
       </div>
 
       <div className="mt-12 grid md:grid-cols-3 gap-6">
