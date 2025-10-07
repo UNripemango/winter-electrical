@@ -1,20 +1,19 @@
-import React from "react";
+import React from 'react';
 
-const testimonials = [
-  "Kyle was amazing! Fast and professional.",
-  "Great service, fair pricing. Highly recommend.",
-  "Installed our EV charger perfectly. Thanks!"
+const items = [
+  {text: 'Winter Electrical did a great job wiring our new kitchen. Professional and efficient.', name: 'Happy Client'},
+  {text: 'Fast response and fair pricing when our breaker tripped. Highly recommend.', name: 'L. from Calgary'},
 ];
 
-const TestimonialSlider = () => (
-  <section className="p-6 bg-white text-center">
-    <h3 className="text-2xl font-heading mb-4">What Our Customers Say</h3>
+export default function TestimonialSlider(){
+  return (
     <div className="space-y-4">
-      {testimonials.map((quote, index) => (
-        <blockquote key={index} className="italic text-gray-700">“{quote}”</blockquote>
+      {items.map((it,i)=> (
+        <blockquote key={i} className="p-4 border rounded bg-white">
+          <p className="text-sm">"{it.text}"</p>
+          <footer className="mt-3 text-xs text-slate-600">— {it.name}</footer>
+        </blockquote>
       ))}
     </div>
-  </section>
-);
-
-export default TestimonialSlider;
+  );
+}

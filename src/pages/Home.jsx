@@ -1,33 +1,53 @@
-import React from "react";
-import ServiceCard from "../components/ServiceCard";
-import TestimonialSlider from "../components/TestimonialSlider";
+import React from 'react';
+import ServiceCard from '../components/ServiceCard';
+import QuoteForm from '../components/QuoteForm';
+import TestimonialSlider from '../components/TestimonialSlider';
 
-const Home = () => (
-  <main>
-    <section className="bg-navy text-white p-10 text-center">
-      <h2 className="text-3xl font-heading mb-2">Reliable Local Electricians You Can Count On.</h2>
-      <p className="mb-4">Fast, friendly service for your home or business.</p>
-      <a href="/contact" className="bg-amber text-navy px-6 py-2 rounded font-bold">Get a Free Quote</a>
-    </section>
-    <section className="p-6 text-center">
-      <p className="text-lg font-semibold">Licensed & Insured • 10+ Years Experience • Locally Owned</p>
-    </section>
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-6">
-      <ServiceCard title="Panel Upgrades" icon="⚡" />
-      <ServiceCard title="Lighting Installation" icon="💡" />
-      <ServiceCard title="Emergency Repairs" icon="🚨" />
-      <ServiceCard title="EV Chargers" icon="🔌" />
-    </section>
-    <section className="bg-gray-100 p-6 grid grid-cols-1 md:grid-cols-3 text-center">
-      <div><h3 className="font-bold">Fast Response</h3></div>
-      <div><h3 className="font-bold">Upfront Pricing</h3></div>
-      <div><h3 className="font-bold">Guaranteed Work</h3></div>
-    </section>
-    <TestimonialSlider />
-    <section className="bg-amber text-navy p-6 text-center">
-      <p className="text-xl font-bold">Need help today? Call (403) 555-1234 or <a href="/contact" className="underline">Request a Quote →</a></p>
-    </section>
-  </main>
-);
+const services = [
+  { title: 'Residential Wiring', desc: 'Complete wiring solutions for your home.' },
+  { title: 'EV Charger Installation', desc: 'Safe, certified EV charger installs.' },
+  { title: 'Emergency Repairs', desc: '24/7 urgent electrical repairs.' },
+];
 
-export default Home;
+export default function Home() {
+  return (
+    <section className="container mx-auto px-4 py-12">
+      <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Reliable Local Electricians You Can Count On</h1>
+          <p className="mb-6 text-lg">Fast, friendly service across Calgary. Licensed & insured — same-day call-backs when available.</p>
+          <div className="flex gap-3">
+            <a href="#quote" className="inline-block px-5 py-3 bg-brand-accent text-white rounded-md shadow hover:opacity-95">Get a Free Quote</a>
+            <a href="tel:+14045551234" className="inline-block px-5 py-3 border rounded-md">Call Now</a>
+          </div>
+          <ul className="mt-6 space-y-2 text-sm">
+            <li>✔ Licensed & Insured</li>
+            <li>✔ 10+ Years Experience</li>
+            <li>✔ Locally Owned — Calgary, AB</li>
+          </ul>
+        </div>
+        <div className="bg-gray-50 rounded-lg p-6 shadow-inner">
+          <img alt="Electrician working" src="/assets/ev-charger.jpg" className="w-full h-64 object-cover rounded-md" />
+        </div>
+      </div>
+
+      <div className="mt-12">
+        <h2 className="text-2xl font-heading font-semibold mb-4">Our Services</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          {services.map(s => <ServiceCard key={s.title} title={s.title} desc={s.desc} />)}
+        </div>
+      </div>
+
+      <div className="mt-12 grid md:grid-cols-3 gap-6">
+        <div className="md:col-span-2">
+          <h3 className="text-xl font-heading mb-4">What Our Clients Say</h3>
+          <TestimonialSlider />
+        </div>
+        <aside id="quote" className="bg-white p-4 rounded-md shadow">
+          <h4 className="font-semibold mb-2">Request Your Free Quote</h4>
+          <QuoteForm />
+        </aside>
+      </div>
+    </section>
+  );
+}

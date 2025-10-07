@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --color-brand: #0f172a;
+  --color-accent: #f59e0b;
+}
+
+.font-heading { font-family: 'Montserrat', system-ui, sans-serif; }
+.font-body { font-family: Inter, system-ui, sans-serif; }
+
+/* Accessibility helpers */
+.focus-ring:focus {
+  outline: 3px solid rgba(245,158,11,0.35);
+  outline-offset: 2px;
+}

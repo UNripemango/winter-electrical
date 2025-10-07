@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const ServiceCard = ({ title, icon }) => (
-  <div className="border p-4 rounded shadow hover:shadow-lg transition">
-    <div className="text-4xl mb-2">{icon}</div>
-    <h4 className="font-bold text-lg">{title}</h4>
-    <a href="/services" className="text-amber underline mt-2 block">Learn More</a>
-  </div>
-);
-
-export default ServiceCard;
+export default function ServiceCard({title, desc}){
+  return (
+    <article className="p-4 border rounded-md bg-white">
+      <div className="mb-3">
+        <div className="w-12 h-12 bg-gray-100 rounded flex items-center justify-center">🔌</div>
+      </div>
+      <h4 className="font-semibold mb-2">{title}</h4>
+      <p className="text-sm text-slate-600">{desc}</p>
+    </article>
+  );
+}
